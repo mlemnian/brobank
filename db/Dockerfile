@@ -1,0 +1,6 @@
+FROM mysql:8
+EXPOSE 3306 33060
+EXPOSE 8080 8080
+
+RUN echo "hello db"
+
