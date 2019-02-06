@@ -2,22 +2,35 @@ package net.brobank.transaction.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import net.brobank.user.entity.User;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.ZonedDateTime;
 
 @Entity
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Table
 public class Transaction {
 
-    User from;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
+    Long id;
 
-    User to;
+    @Column
+    @NotNull
+    Long from;
 
+    @Column
+    @NotNull
+    Long to;
+
+    @Column
+    @NotNull
     Long amount;
 
     @Column

@@ -5,6 +5,8 @@ import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Metered;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -23,6 +25,9 @@ import java.util.logging.Logger;
 public class UserService {
 
     private static Logger logger = Logger.getLogger(UserService.class.getName());
+
+    @PersistenceContext(unitName = "Users")
+    EntityManager em;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
