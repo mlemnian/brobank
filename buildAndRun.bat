@@ -15,4 +15,4 @@ echo REMOVE OLD DOCKER CONTAINER
 call docker rm -f brobank
 
 echo RUN NEW DOCKER IMAGE
-call docker run -d -p 9080:9080 -p 9443:9443 --name brobank net/brobank
+call docker run -d -h brobank -p 9080:9080 -p 9443:9443 --name brobank net/brobank
