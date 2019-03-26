@@ -9,7 +9,8 @@ repositories {
 
 dependencies {
     providedCompile 'javax:javaee-api:8.0'
-    providedCompile enforcedPlatform('org.eclipse.microprofile:microprofile:2.1')
+	//provided group: 'org.eclipse.microprofile', name: 'microprofile', version: '2.1', ext: 'pom'
+	providedCompile 'org.eclipse.microprofile:microprofile:2.1'
     compileOnly 'org.projectlombok:lombok:1.18.4'
     annotationProcessor 'org.projectlombok:lombok:1.18.4'
     // Use JUnit test framework
