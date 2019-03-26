@@ -31,10 +31,12 @@ public class User {
 
     @Column
     @Size(max = 255)
+    @NotNull
     String username;
 
     @Column
     @Size(max = 255)
+    @NotNull
     String encryptedPassword;
 
     @Column

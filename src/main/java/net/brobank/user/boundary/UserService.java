@@ -2,7 +2,6 @@ package net.brobank.user.boundary;
 
 import net.brobank.user.entity.User;
 import org.eclipse.microprofile.metrics.annotation.Counted;
-import org.eclipse.microprofile.metrics.annotation.Metered;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -21,12 +20,11 @@ import java.util.logging.Logger;
 
 @Stateless
 @Path("/users")
-@Metered
 public class UserService {
 
     private static Logger logger = Logger.getLogger(UserService.class.getName());
 
-    @PersistenceContext(unitName = "Users")
+    @PersistenceContext(unitName = "brobank")
     EntityManager em;
 
     @GET

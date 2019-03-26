@@ -3,7 +3,6 @@ package net.brobank.transaction.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.brobank.user.entity.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

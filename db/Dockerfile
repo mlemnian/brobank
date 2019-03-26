@@ -1,6 +1,3 @@
-FROM mysql:8
-EXPOSE 3306 33060
+FROM mysql:8.0.15
+EXPOSE 3306 3306
 EXPOSE 8080 8080
-
-RUN echo "hello db"
-

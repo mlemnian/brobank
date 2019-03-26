@@ -23,4 +23,12 @@
     <!-- Automatically expand WAR files and EAR files -->
     <applicationManager autoExpand="true"/>
 
+    <dataSource id="DefaultDataSource" jndiName="jdbc/mySQL">
+        <jdbcDriver libraryRef="MySQLLib"/>
+        <properties databaseName="brobank-admin" serverName="localhost" portNumber="3306" user="root" password="example"/>
+    </dataSource>
+
+    <library id="MySQLLib">
+        <file name="./mysql-connector-java-8.0.15.jar"/>
+    </library>
 </server>
