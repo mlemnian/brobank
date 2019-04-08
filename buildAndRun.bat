@@ -8,11 +8,7 @@ if errorlevel 1 (
    exit /b %errorlevel%
 )
 
-echo BUILD DOCKER IMAGE
-call docker build -t net/brobank .
 
-echo REMOVE OLD DOCKER CONTAINER
-call docker rm -f brobank
-
-echo RUN NEW DOCKER IMAGE
-call docker run -d -h brobank -p 9080:9080 -p 9443:9443 --name brobank net/brobank
+call docker-compose down
+call docker-compose build
+call docker-compose up

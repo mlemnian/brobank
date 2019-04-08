@@ -2,16 +2,22 @@ version: '3'
 services:
   flyway:
     image: boxfuse/flyway:5.2.4
-    command: -url=jdbc:mysql://db -schemas=myschema -user=root -password=P@ssw0rd -connectRetries=60 migrate
+    command: -url=jdbc:mysql://brobank-db -schemas=brobank-admin -user=root -password=P@ssw0rd -connectRetries=60 migrate
     volumes:
-      - .:/flyway/sql
-      - .:/flyway/drivers
+      - ./flyway/sql:/flyway/sql
     depends_on:
-      - db
-  db:
+      - brobank-db
+  brobank-db:
     image: mysql:8.0.15
     environment:
       - MYSQL_ROOT_PASSWORD=P@ssw0rd
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - 3306:3306
+  brobank-app:
+    build: .
+    ports:
+      - "9080:9080"
+      - "9443:9443"
+    depends_on:
+      - flyway

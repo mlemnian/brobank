@@ -25,7 +25,7 @@
 
     <dataSource id="DefaultDataSource" jndiName="jdbc/mySQL">
         <jdbcDriver libraryRef="MySQLLib"/>
-        <properties databaseName="brobank-admin" serverName="localhost" portNumber="3306" user="root" password="example"/>
+        <properties databaseName="brobank-admin" serverName="brobank-db" portNumber="3306" user="root" password="P@ssw0rd"/>
     </dataSource>
 
     <library id="MySQLLib">

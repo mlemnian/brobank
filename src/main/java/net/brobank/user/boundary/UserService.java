@@ -30,9 +30,7 @@ public class UserService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> getAll() {
-        return Arrays.asList(new User(1L, "nob", "iafgWEIZGFEWIUFIWEUOGFWEODIHWQDSJBhhbferbifb",
-                "lemmi", "test", "martin.lemnian@gmail.com", "",
-                ZonedDateTime.now(), ZonedDateTime.now()));
+        return em.createNativeQuery("select * from `brobank-admin`.user", User.class).getResultList();
     }
 
     @POST
