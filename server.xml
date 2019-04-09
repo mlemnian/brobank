@@ -4,7 +4,6 @@
     <!-- Enable features -->
     <featureManager>
         <feature>javaee-8.0</feature>
-        <feature>mpOpenTracing-1.2</feature>
         <feature>microProfile-2.1</feature>
     </featureManager>
     <!-- To allow access to this server from a remote client host="*" has been added to the following element -->

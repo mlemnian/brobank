@@ -1,9 +1,10 @@
 package net.brobank.user.boundary;
 
 import net.brobank.user.entity.User;
-import org.eclipse.microprofile.metrics.annotation.Counted;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.validation.ConstraintViolation;
@@ -24,19 +25,20 @@ public class UserService {
 
     private static Logger logger = Logger.getLogger(UserService.class.getName());
 
-    @PersistenceContext(unitName = "brobank")
+    @PersistenceContext(unitName = "brobank-db")
     EntityManager em;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> getAll() {
-        return em.createNativeQuery("select * from `brobank-admin`.user", User.class).getResultList();
+        return em.createNativeQuery("select * from user", User.class).getResultList();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Counted(monotonic = true)
+    @TransactionAttribute(value = TransactionAttributeType.REQUIRED)
     public void insert(User newUser) {
+        logger.warning(newUser.toString());
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
@@ -44,5 +46,7 @@ public class UserService {
         for (ConstraintViolation<User> violation : violations) {
             logger.severe(violation.getMessage());
         }
+
+        em.persist(newUser);
     }
 }

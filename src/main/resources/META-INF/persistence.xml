@@ -8,9 +8,5 @@
         <class>net.brobank.user.entity.User</class>
         <class>net.brobank.transaction.entity.Transaction</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
-        <properties>
-            <property name="javax.persistence.schema-generation.create-source"
-                      value="metadata"/>
-        </properties>
     </persistence-unit>
 </persistence>

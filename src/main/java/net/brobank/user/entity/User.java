@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.ZonedDateTime;
+import java.sql.Timestamp;
 
 @Entity
 @AllArgsConstructor
@@ -49,9 +49,9 @@ public class User {
 
     @Column
     @NotNull
-    ZonedDateTime created;
+    Timestamp created;
 
     @Column
     @NotNull
-    ZonedDateTime lastUpdate;
+    Timestamp lastUpdate;
 }

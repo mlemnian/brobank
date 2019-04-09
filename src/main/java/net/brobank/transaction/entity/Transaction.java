@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.ZonedDateTime;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -34,9 +34,9 @@ public class Transaction {
 
     @Column
     @NotNull
-    ZonedDateTime created;
+    Timestamp created;
 
     @Column
     @NotNull
-    ZonedDateTime lastUpdate;
+    Timestamp lastUpdate;
 }
