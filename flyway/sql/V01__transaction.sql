@@ -1,4 +1,4 @@
-create table `brobank-admin`.transaction
+create table `brobank-admin`.Transaction
 (
   id int auto_increment,
   `from` long not null,
@@ -11,4 +11,4 @@ create table `brobank-admin`.transaction
 );
 
 create index transaction_id_index
-  on `brobank-admin`.transaction (id);
+  on `brobank-admin`.Transaction (id);
