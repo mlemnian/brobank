@@ -7,17 +7,22 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.sql.Timestamp;
+import java.time.OffsetDateTime;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "user")
+@Table(name = "User")
+@NamedQueries(
+        @NamedQuery(name=User.FIND_ALL, query="select u from User u")
+)
 public class User {
 
+    public static final String FIND_ALL = "findAll";
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     Long id;
 
@@ -49,9 +54,9 @@ public class User {
 
     @Column
     @NotNull
-    Timestamp created;
+    OffsetDateTime created;
 
     @Column
     @NotNull
-    Timestamp lastUpdate;
+    OffsetDateTime lastUpdate;
 }

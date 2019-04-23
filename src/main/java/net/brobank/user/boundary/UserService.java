@@ -13,8 +13,6 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.time.ZonedDateTime;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -31,14 +29,14 @@ public class UserService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> getAll() {
-        return em.createNativeQuery("select * from user", User.class).getResultList();
+        return em.createNamedQuery(User.FIND_ALL, User.class).getResultList();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @TransactionAttribute(value = TransactionAttributeType.REQUIRED)
     public void insert(User newUser) {
-        logger.warning(newUser.toString());
+
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 

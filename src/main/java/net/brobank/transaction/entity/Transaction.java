@@ -6,14 +6,19 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
+import java.time.OffsetDateTime;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
+@Table (name = "Transaction")
+@NamedQueries(
+        @NamedQuery(name= Transaction.FIND_ALL, query="select t from Transaction t")
+)
 public class Transaction {
+
+    public static final String FIND_ALL = "findAll";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,9 +39,9 @@ public class Transaction {
 
     @Column
     @NotNull
-    Timestamp created;
+    OffsetDateTime created;
 
     @Column
     @NotNull
-    Timestamp lastUpdate;
+    OffsetDateTime lastUpdate;
 }
