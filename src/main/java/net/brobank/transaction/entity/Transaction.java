@@ -18,7 +18,7 @@ import java.time.OffsetDateTime;
 )
 public class Transaction {
 
-    public static final String FIND_ALL = "findAll";
+    public static final String FIND_ALL = "findAllTransactions";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

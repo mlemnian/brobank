@@ -19,7 +19,7 @@ import java.time.OffsetDateTime;
 )
 public class User {
 
-    public static final String FIND_ALL = "findAll";
+    public static final String FIND_ALL = "findAllUsers";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

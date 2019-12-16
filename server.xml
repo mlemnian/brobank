@@ -28,6 +28,6 @@
     </dataSource>
 
     <library id="MySQLLib">
-        <file name="./mysql-connector-java-8.0.15.jar"/>
+        <file name="./mysql-connector-java-8.0.18.jar"/>
     </library>
 </server>

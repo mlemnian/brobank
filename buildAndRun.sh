@@ -1,5 +1,5 @@
-#!/bin/bash
-gradlew :clean :build
+#!/usr/bin/env bash
+./gradlew :clean :build
 
 docker-compose down
 docker-compose build
